@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-if [ "ENV" = "DEV" ]; then
+if [ $ENV = "DEV" ]; then
     echo "Running development server"
     exec python app.py
 else
