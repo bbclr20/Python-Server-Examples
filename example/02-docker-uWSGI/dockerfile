@@ -1,0 +1,12 @@
+FROM python:3.4
+
+RUN groupadd -r uwsgi && \
+    useradd -r -g uwsgi uwsgi && \
+    pip install Flask==0.10.1 uwsgi
+
+USER uwsgi
+WORKDIR /app
+COPY app /app
+
+EXPOSE 9090 9191
+ENTRYPOINT [ "./cmd.sh" ]
